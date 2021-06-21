@@ -232,14 +232,4 @@ class Consumer::AwsSigv4Controller < ActionController::Base
   # If this is a preflight OPTIONS request, then short-circuit the
   # request, return only the necessary headers and return an empty
   # text/plain.
-
-  def cors_preflight_check
-    if request.method == "OPTIONS"
-      headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-      headers['Access-Control-Allow-Headers'] = 'Authorization,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,X-Prototype-Version,If-Modified-Since,Cache-Control,Content-Type'
-      headers['Access-Control-Max-Age'] = '1728000'
-      render :body => nil, :status => 204
-    end
-  end
 end
